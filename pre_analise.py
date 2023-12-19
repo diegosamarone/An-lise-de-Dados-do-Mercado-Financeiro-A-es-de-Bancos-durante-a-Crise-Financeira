@@ -55,3 +55,98 @@ returns = pd.DataFrame()
 for tick in tickers:
     returns[tick + 'Return'] = bank_stocks[tick]['close'].pct_change()
 returns.head()
+
+#%% Criar um parplot usando seaborn no dataframe de retorno
+returns['BACReturn'].plot()
+
+#%%
+returns['GSReturn'].plot()
+
+#%%
+returns['CReturn'].plot()
+
+#%%
+returns['JPMReturn'].plot()
+
+#%%
+returns['MSReturn'].plot()
+
+#%%
+returns['WFCReturn'].plot()
+
+'''
+Nota-se que nos anos de 2008-2009 houve volatilidade excessiva dos retornos, 
+O que era de se esperar devido a crise
+Nos anos 2011-2012 também foi percebido uma volatilidade acentuado nos retornos
+'''
+
+#%% Criar um parplote do dataframe de retorno
+import seaborn as sns
+sns.pairplot(returns[1:]) 
+# apartir de 1 pois a linha 0 contem valores NaN
+
+'''
+O pairplote gerado mostrar uma correlação entre os retornos de cada banco
+Isso ocorre pois esses ativos fazem parte de um mesmo 'Índice' S&P 500
+'''
+#%%vamos descobrir o pior dia de returno de cada banco
+returns.idxmin()
+'''
+ Alguns bancos teve seus piores retorno em 20/01/2009
+ Essa data coincide com o dia da Posse do ex-presidente Obama
+ Provavelmente alguns investidores entraram em pânico devido 
+ a uma transição política tão relevante.
+'''
+
+#%% vamos descobrir o melhor dia de returno de cada banco
+returns.idxmax()
+
+
+#%% exemplo de como descobri o pior e o melhor retorno de determinado banco
+returns['BACReturn'].min() #pior
+
+returns['BACReturn'].max() #melhor
+
+#%%
+'''
+ Descobrir qual ação é a mais arriscada durante todo o período de tempo.
+ para isso devemos analisar os devios padroes das series de retorono 
+e identificar qual ação é mais arriscada nos anos de 2006 a 2016.
+'''
+returns.std()
+
+#Como CitiGroup(CReturn) é o que maior desvio, então ele é o mais volátio
+#Cosequentimente o mais arriscado
+
+#%% 
+'''
+VAMOS FILTRAR ESSES DADOS PARA 2015
+Quremos agora descobrir a ação mais 
+arriscado para o ano 2015
+'''
+
+#conveter o index(que são str) em 'TimeStamp'
+returns.index = pd.to_datetime(returns.index)
+
+type(returns.index)
+returns.index[0]
+
+#%% 
+'''Agora devemos coverter os TimeStamps em objetos tipo 'date' 
+e especificar para ele retornar somente datas a partir de (2015, 1, 1)
+e anterior a (2016, 1, 1)
+'''
+import datetime 
+returns[(returns.index.date >= datetime.date(2015, 1, 1)) & (returns.index.date < datetime.date(2016, 1, 1))].std()
+
+'''
+Agoran,com as datas filtradas para o ando de 2015, pode-se notar que
+os Bancos que tiveram maior volatilidade de retornos foram o Morgan Stanley
+e o Bank of America.
+'''
+
+#%% Gráfico distplot dos retornos de 2015 para o Morgan Stanley
+sns.distplot(returns[(returns.index.date >= datetime.date(2015, 1, 1)) & (returns.index.date < datetime.date(2016, 1, 1))]['MSReturn'])
+
+#%% Gráfico distplot dos retornos de 2008 para o CitiGroup
+sns.distplot(returns[(returns.index.date >= datetime.date(2008, 1, 1)) & (returns.index.date < datetime.date(2009, 1, 1))]['CReturn'])
