@@ -14,8 +14,8 @@ import datetime as dt
 
 from matplotlib import pyplot as plt
 #%%
-# api_key = 'SUA_CHAVE_API_ALPHA_VANTAGE'
-api_key = 'PUERWR701G55OCA7'
+
+api_key = 'SUA_CHAVE_API_ALPHA_VANTAGE'
 
 start_date = dt.datetime(2006, 1, 1)
 
@@ -28,7 +28,6 @@ tickers = ['BAC', 'C', 'GS', 'JPM', 'MS', 'WFC']
 
 #%%
 # iremos precisar de um dicionário para armazenar os DataFrames de cada banco
-
 bank_data = {}
 
 
