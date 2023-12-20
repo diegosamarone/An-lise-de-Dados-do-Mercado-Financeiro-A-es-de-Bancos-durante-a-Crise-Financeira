@@ -5,7 +5,7 @@ Created on Sun Dec 17 00:28:29 2023
 @author: Diego
 """
 #%%
-from analise_mercado_financeiro import bank_data, tickers, pd, np, plt
+from data_collection import bank_data, tickers, pd, np, plt
 
 #%% Acesse os dados usando bank_data['BAC'], bank_data['C'], etc.
 bank_data['BAC']
