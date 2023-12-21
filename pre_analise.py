@@ -7,6 +7,21 @@ Created on Sun Dec 17 00:28:29 2023
 #%%
 from data_collection import bank_data, tickers, pd, np, plt, dt
 
+#%%função para converter o index str em objeto datatime
+def convert_to_datetime (df):
+    # Verifica se o objeto é um DataFrame
+    if not isinstance(df, pd.DataFrame):
+        print('O objeto não é um DataFrame. Insira um DataFrame!')
+
+# Convertendo para datetime
+    df.index = pd.to_datetime(df.index, errors='coerce')  # 'coerce' trata valores inválidos
+
+# Verificando se a conversão foi bem-sucedida
+    if isinstance(df.index, pd.DatetimeIndex):
+        print("\nA conversão para datetime foi bem-sucedida!")
+    else:
+        print("\nA conversão para datetime falhou.")
+
 #%% Acesse os dados usando bank_data['BAC'], bank_data['C'], etc.
 bank_data['BAC']
 # acessar a série de fechamentos 'closes' do BAC
@@ -164,3 +179,26 @@ plt.legend()
 #%% 2º forma de plotar o gráfico de fechamentos
 bank_stocks.xs(key='close', level='Stock Info', axis = 1).plot(figsize=(12, 4))
 plt.legend()
+
+
+''' Médias Móveis   
+Média móvel de 30 dias para o peço próximo do BAC para o ano de 2008
+'''
+BAC = bank_data['BAC']
+
+#%% conveter o index(que são str na forma: AAAA - MM - DD HH:MM:SS) em 'TimeStamp'
+convert_to_datetime(BAC)
+
+#%% filtrar os anos de 2008
+plt.Figure(figsize=(12,6))
+BAC_2008 = BAC['close'][BAC.index.year == 2008]
+BAC_2008_media_movel = BAC_2008.rolling(window = 30).mean().plot(label='Média móvel de 30 dias')
+BAC_2008.plot(label='Fechamento')
+plt.legend()
+
+#%% Mapa d calor entre os preços de fechamento das ações
+corr_matrix = bank_stocks.xs(key='close', level='Stock Info', axis=1).corr()
+sns.heatmap(corr_matrix, annot=True)
+
+#%% usar o clustermap do seaborn para agrupar as correlaçõe
+sns.clustermap(corr_matrix, annot=True)
