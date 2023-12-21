@@ -10,14 +10,14 @@ from data_collection import bank_data, tickers, pd, np, plt, dt
 #%% Acesse os dados usando bank_data['BAC'], bank_data['C'], etc.
 bank_data['BAC']
 # acessar a série de fechamentos 'closes' do BAC
-bank_data['BAC']['close'].plot()
+bank_data['BAC']['close'].plot(figsize=(12, 4))
 plt.xticks(rotation=30)
 plt.tight_layout()
 
 #%%
 bank_data['C']
 # acessar a série de fechamentos 'closes' do C - CitiGroup
-bank_data['C']['close'].plot()
+bank_data['C']['close'].plot(figsize=(12, 4))
 plt.xticks(rotation=30)
 plt.tight_layout()
 
@@ -57,22 +57,22 @@ for tick in tickers:
 returns.head()
 
 #%% Criar um parplot usando seaborn no dataframe de retorno
-returns['BACReturn'].plot()
+returns['BACReturn'].plot(figsize=(12, 4))
 
 #%%
-returns['GSReturn'].plot()
+returns['GSReturn'].plot(figsize=(12, 4))
 
 #%%
-returns['CReturn'].plot()
+returns['CReturn'].plot(figsize=(12, 4))
 
 #%%
-returns['JPMReturn'].plot()
+returns['JPMReturn'].plot(figsize=(12, 4))
 
 #%%
-returns['MSReturn'].plot()
+returns['MSReturn'].plot(figsize=(12, 4))
 
 #%%
-returns['WFCReturn'].plot()
+returns['WFCReturn'].plot(figsize=(12, 4))
 
 '''
 Nota-se que nos anos de 2008-2009 houve volatilidade excessiva dos retornos, 
