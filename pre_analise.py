@@ -5,7 +5,7 @@ Created on Sun Dec 17 00:28:29 2023
 @author: Diego
 """
 #%%
-from data_collection import bank_data, tickers, pd, np, plt
+from data_collection import bank_data, tickers, pd, np, plt, dt
 
 #%% Acesse os dados usando bank_data['BAC'], bank_data['C'], etc.
 bank_data['BAC']
@@ -136,8 +136,7 @@ returns.index[0]
 e especificar para ele retornar somente datas a partir de (2015, 1, 1)
 e anterior a (2016, 1, 1)
 '''
-import datetime 
-returns[(returns.index.date >= datetime.date(2015, 1, 1)) & (returns.index.date < datetime.date(2016, 1, 1))].std()
+returns[(returns.index.date >= dt.date(2015, 1, 1)) & (returns.index.date < dt.date(2016, 1, 1))].std()
 
 '''
 Agoran,com as datas filtradas para o ando de 2015, pode-se notar que
@@ -145,8 +144,23 @@ os Bancos que tiveram maior volatilidade de retornos foram o Morgan Stanley
 e o Bank of America.
 '''
 
+
 #%% Gráfico distplot dos retornos de 2015 para o Morgan Stanley
-sns.distplot(returns[(returns.index.date >= datetime.date(2015, 1, 1)) & (returns.index.date < datetime.date(2016, 1, 1))]['MSReturn'])
+sns.distplot(returns[(returns.index.date >= dt.date(2015, 1, 1)) & (returns.index.date < dt.date(2016, 1, 1))]['MSReturn'])
 
 #%% Gráfico distplot dos retornos de 2008 para o CitiGroup
-sns.distplot(returns[(returns.index.date >= datetime.date(2008, 1, 1)) & (returns.index.date < datetime.date(2009, 1, 1))]['CReturn'])
+sns.distplot(returns[(returns.index.date >= dt.date(2008, 1, 1)) & (returns.index.date < dt.date(2009, 1, 1))]['CReturn'])
+
+
+#%%
+'''  MAIS VISUALIZAÇÕES   '''
+sns.set_style('whitegrid')
+
+# gráfico de linha mostrando o preço  de fechamento para cada banco para todo o índice de tempo
+for tick in tickers:
+    bank_stocks[tick]['close'].plot(figsize=(12, 4), label=tick)
+plt.legend()
+
+#%% 2º forma de plotar o gráfico de fechamentos
+bank_stocks.xs(key='close', level='Stock Info', axis = 1).plot(figsize=(12, 4))
+plt.legend()
