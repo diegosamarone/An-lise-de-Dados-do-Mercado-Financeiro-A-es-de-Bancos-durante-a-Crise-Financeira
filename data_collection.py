@@ -6,12 +6,10 @@ Created on Sun Dec 17 00:23:48 2023
 """
 #%%
 import pandas_datareader as pdr
-
 import pandas as pd
-
 import numpy as np
+import seaborn as sns
 import datetime as dt
-
 from matplotlib import pyplot as plt
 #%%
 
