@@ -17,7 +17,7 @@
 
 <h3>Objetivo do Projeto</h3>
 
-**Este projeto de dados tem como objetivo realizar uma análise exploratória dos preços das ações, concentrando-se especialmente nas ações de bancos. É importante destacar que este projeto é voltado para a prática de habilidades em visualização e manipulação de dados com bibliotecas específicas, não sendo uma análise financeira robusta.**
+**Este projeto de dados tem como objetivo realizar uma análise exploratória dos preços das ações, concentrando-se especialmente nas ações de bancos. Ao longo do processo, foram utilizadas diversas técnicas de visualização e análise estatística para extrair insights valiosos sobre o comportamento dessas instituições ao longo do tempo, abrangendo eventos significativos como a Crise Financeira de 2007–2008. A compreensão desses padrões é fundamental para investidores e analistas que buscam tomar decisões informadas no mercado financeiro. É importante destacar que este projeto é voltado para a prática de habilidades em visualização e manipulação de dados com bibliotecas específicas, não sendo "ainda" uma análise financeira robusta.**
 
 </div>
 
@@ -35,8 +35,26 @@
 **Informações Financeiras**
 * Demonstramos como acessar informações financeiras sobre os bancos, como a série de fechamentos ('closes') do Bank of America.
 
-**Concatenação de DataFrames**
-* Utilizamos a função pd.concat para concatenar os DataFrames dos bancos em um único DataFrame chamado bank_stocks. Isso porque queremos que o DataFrame bank_stocks reuna informações consolidadas de todos os bancos. Os níveis dos nomes das colunas foram definidos para facilitar a análise.
+**Estrutura dos Dados**
+* Os dados foram organizados em um dicionário chamado **bank_data**, onde cada banco possui um DataFrame contendo as séries temporais de informações financeiras. Com isso, concatenamos os DataFrames dos bancos em um único DataFrame chamado **bank_stocks**. Isso porque queremos que o DataFrame **bank_stocks** reuna informações consolidadas de todos os bancos. Os níveis dos nomes das colunas foram definidos para facilitar a análise. 
+
+**Exploração Inicial**
+* Realizamos uma análise exploratória inicial visualizando os fechamentos diários dos bancos ao longo do período. Destacamos a crise financeira de 2008, evidenciando a volatilidade excepcional nesse período.
+
+**Análise de Retornos**
+* Calculamos os retornos percentuais diários de cada banco e utilizamos visualizações, como pairplots, para explorar a correlação entre esses retornos. Identificamos momentos de extrema volatilidade nos anos de 2008-2009 e 2011-2012, relacionados a eventos econômicos significativos.
+
+**Identificação de Extremos**
+* Identificamos as datas dos piores e melhores retornos para cada banco. Notavelmente, os piores retornos coincidiram com eventos como a posse do presidente Obama em 2009.
+
+**Análise de Risco**
+* Calculamos os desvios padrões dos retornos para avaliar o risco de cada banco. Constatamos que o Citigroup (C) apresentou o maior desvio padrão, indicando maior volatilidade e, consequentemente, maior risco.
+
+**Análise Temporal (2015)**
+* Filtramos os dados para o ano de 2015 e observamos que Morgan Stanley e Bank of America foram os bancos mais voláteis durante esse período.
+
+**Visualizações Adicionais**
+Realizamos visualizações adicionais, incluindo gráficos de linha dos preços de fechamento para cada banco, médias móveis e mapas de calor para explorar correlações entre os preços de fechamento.
 
 **Próximos Passos**
 * O projeto está em andamento, e os próximos passos incluirão análises mais aprofundadas, visualizações gráficas e possíveis modelagens preditivas, conforme necessário.
