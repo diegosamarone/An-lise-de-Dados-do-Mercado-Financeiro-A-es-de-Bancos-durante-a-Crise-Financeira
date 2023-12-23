@@ -8,6 +8,7 @@
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
+<img src="https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" alt="Seaborn" width="90" height="45">
 <img src="https://pandas-datareader.readthedocs.io/en/latest/_static/pandas-datareader-plain.svg" alt="datareader" width="100" height="30">
 
  </div>
@@ -57,16 +58,18 @@
 Realizamos visualizações adicionais, incluindo gráficos de linha dos preços de fechamento para cada banco, médias móveis e mapas de calor para explorar correlações entre os preços de fechamento.
 
 **Próximos Passos**
-* O projeto está em andamento, e os próximos passos incluirão análises mais aprofundadas, visualizações gráficas e possíveis modelagens preditivas, conforme necessário.
+* O projeto está em andamento, e os próximos passos incluirão análises mais aprofundadas, masi visualizações gráficas e possíveis modelagens preditivas, conforme necessário.
 
 <div>
 <br>
 <h4>Tecnologias:</h4>
 Python
+<br>Spyder IDE
 <br>Jupyter Notebook
 <br>Pandas
 <br>Pandas-datareader
 <br>Alpha Vantage API
 <br>Numpy
 <br>Matplotlib
+<br>Seaborn
 </div>
