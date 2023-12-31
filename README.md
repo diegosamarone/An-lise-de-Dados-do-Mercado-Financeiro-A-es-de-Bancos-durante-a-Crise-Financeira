@@ -18,8 +18,8 @@
 
 <h3>Objetivo do Projeto</h3>
 
-**Este projeto de dados tem como objetivo realizar uma análise exploratória dos preços das ações, concentrando-se especialmente nas ações de bancos. Ao longo do processo, foram utilizadas diversas técnicas de visualização e análise estatística para extrair insights valiosos sobre o comportamento dessas instituições ao longo do tempo, abrangendo eventos significativos como a Crise Financeira de 2007–2008. A compreensão desses padrões é fundamental para investidores e analistas que buscam tomar decisões informadas no mercado financeiro. É importante destacar que este projeto é voltado para a prática de habilidades em visualização e manipulação de dados com bibliotecas específicas, não sendo "ainda" uma análise financeira robusta.**
-
+**Este projeto de dados tem como objetivo realizar uma análise exploratória dos preços das ações, concentrando-se especialmente nas ações de bancos. Ao longo do processo, foram utilizadas diversas técnicas de visualização e análise estatística para extrair insights valiosos sobre o comportamento dessas instituições ao longo do tempo, abrangendo eventos significativos como a Crise Financeira de 2007–2008. A compreensão desses padrões é fundamental para investidores e analistas que buscam tomar decisões informadas no mercado financeiro. É importante destacar que este projeto é voltado para a prática de habilidades em visualização e manipulação de dados com bibliotecas específicas, não sendo "ainda" uma análise financeira robusta.**<br>
+[Notebook Jupyter do Projeto](https://github.com/diegosamarone/Analise_de_Dados_do_Mercado_Financeiro/blob/main/Notebook%20Jupyter/Analise_Mercado_Financeiro.ipynb)
 </div>
 
 **Fonte de Dados**
